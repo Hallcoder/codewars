@@ -18,3 +18,58 @@
 //  1 1 1 3 1   1100: 1000 (for three 1s) + 100 (for the other 1)
 //  2 4 4 5 4   450:  400 (for three 4s) + 50 (for the 5)
 // In some languages, it is possible to mutate the input to the function. This is something that you should never do. If you mutate the input, you will not be able to pass all the tests.
+
+    function score(dice) {
+    // Fill me in!
+    let score = 0;
+    let scores = [1, 2, 3, 4, 5, 6];
+    for (let i = 1; i <= 6; i++) {
+        let Dice = dice.filter((el) => el === i);
+        switch (Dice[0]) {
+        case 1:
+            if (Dice.length === 3) {
+            score += 1000;
+            } else if(Dice.length >3 && Dice.length % 3 !== 0) {
+            score += 1000 + ((Dice.length-3) * 100);
+            }
+            else if(Dice.length >3 && Dice.length % 3 === 0){
+                score += 1000 * (Dice.length/3);
+            }else{
+                score += Dice.length * 100;
+            }
+            break;
+        case 2:
+            if (Dice.length >= 3) {
+                score += 200;
+            }
+            break;
+        case 3:
+            if (Dice.length >= 3) {
+            score += 300;
+            }
+            break;
+        case 4:
+            if (Dice.length === 3) score += 400;
+            break;
+        case 5:
+            if (Dice.length === 3) {
+                score += 500;
+            } else if(Dice.length >3 && Dice.length % 5 != 0) {
+                score += 500 + ((Dice.length-3) * 50);
+            }
+            else if(Dice.length >3 && Dice.length % 5 === 0){
+                score += 500 * (Dice.length/5);
+            }else{
+                score += Dice.length * 50;
+            }
+            break;
+        case 6:
+            if (Dice.length === 3) score += 600;
+            break;
+        default:
+            score += 0;
+        }
+    }
+    return score;
+    }
+console.log(score([1, 1, 1, 3, 1]));
