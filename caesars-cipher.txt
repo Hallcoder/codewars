@@ -1,0 +1,23 @@
+function rot13(str) {
+  const letters= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  let decodedWord = [];
+  let index;
+  let correspondant;
+  let remainder;
+  str.split('').map(s => {
+if(s === " ") return decodedWord.push(" ");
+if(/[!?.]/.test(s)) return decodedWord.push(s)
+    index = letters.indexOf(s);
+    if((index + 13) > (letters.length-1)){
+      remainder = (index+13) - (letters.length);
+      correspondant = letters[remainder]
+    }else{
+    correspondant = letters[index+13];
+    }
+    decodedWord.push(correspondant);
+    })  
+  console.log(decodedWord.join(''))
+  return decodedWord.join('');
+}
+
+rot13("SERR CVMMN!")
