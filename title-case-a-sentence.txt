@@ -1,0 +1,7 @@
+function titleCase(str) {
+  return str.split(' ').map(s => {
+   return s[0].toUpperCase().concat(s.split('').slice(1).join('').toLowerCase());
+  }).join(' ');
+}
+
+titleCase("sHoRt AnD sToUt");

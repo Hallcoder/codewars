@@ -1,0 +1,6 @@
+function truncateString(str, num) {
+  if(str.length === num || (str.length-num<3 && str.length-num<0)) return str;
+  return str.substr(0,num).concat('...');
+}
+
+console.log(truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2));
